@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updated screen</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-white border-bottom  border-1 border-secondary border-opacity-25 rounded-bottom shadow">
+        <div class="container-fluid">
+            <img src="logo.png" alt="">
+          <a class="navbar-brand text-success inter" href="screen1.html">RRMMS</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link  text-dark" aria-current="page" href="screen1.html">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  text-dark" href="screen5.html">Repair Request</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  text-dark" href="screen6.html">User Approval</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-success fw-bold" href="screen7.html">MIV Request</a>
+            </li>
+           
+            <li class="nav-item">
+                <a class="nav-link  text-dark" aria-current="page" href="Userscreen.html">User Management</a>
+              </li>
+            </ul>
+            <div>
+                <span id="username">Ahmed Hasan</span>
+                <a class="text-dark " href="login.html"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                    <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                  </svg></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="container" id="blur"> 
+      
+            <div id="request-info">
+                <!-- Request details will be displayed here -->
+            </div>
+            <div class="outer-square">
+            <div class="inner-square">
+            </div>
+            <p class="text22">
+                The UPS is malfunctioning, likely due to a short circuit. The electrical problem disrupts the UPS's ability to provide backup power, compromising its functionality and potentially risking damage to connected devices. Immediate attention is required to diagnose and resolve the issue to restore normal operation and prevent further damage.
+            </p>
+                <h3>Images</h3>
+                <div class="image-section">
+                    <img src="UPS.jpg" alt="Image 1" onclick="openModal(this)">
+                    <img src="UPS.jpg" alt="Image 2" onclick="openModal(this)">
+                    <img src="UPS.jpg" alt="Image 3" onclick="openModal(this)">
+                    <img src="UPS.jpg" alt="Image 4" onclick="openModal(this)">
+                </div>
+            
+                <div id="myModal" class="modal">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="modal-content">
+                        <img id="modalImage" src="">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="b3" onclick="window.location.href='screen6.html';"> Back</button>
+
+                    <button class="b1" onclick="toggle2()"> Reject</button>
+                    
+                    <button class="b2" onclick="toggle()">Approve</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="popup">
+    <div class="popup">
+        <div class="header">
+    <button class="x" onclick="toggle()">X</button>
+
+            <h1><u>Items Requested</u></h1>
+        </div>
+        <div class="content">
+            <p><strong>Name:</strong> Sufyan Anis</p>
+            <p><strong>Request Date:</strong> Wednesday 10th July 2024</p>
+            <p class="abc"><strong >Status:</strong> Pending</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S#</th>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Units</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Wire</td>
+                        <td>14</td>
+                        <td>Meters</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Screw</td>
+                        <td>14</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Glue Gun</td>
+                        <td>2</td>
+                        <td>Small</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="button-container">
+            
+            <button class="b2" onclick="toggle(); updateStatus('Approved'); window.location.href='screen7.html';">Submit</button>
+        </div>
+    </div>
+</div>
+
+<div id="popup2">
+    <button class="x" onclick="toggle2()">X</button>
+
+    <h1 class="abcd">Rejection Reason:</h1>
+    <form id="myForm" class="was-validated" novalidate>
+        <div class="mb-3">
+            <label for="validationTextarea" class="form-label">Textarea</label>
+            <textarea class="form-control" id="validationTextarea" row="5" cols="5" placeholder="" required></textarea>
+            <div class="invalid-feedback">
+                Please enter a message in the textarea.
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button id="submitButton" class="b1" type="submit" disabled>Submit</button>
+        </div>    
+    </form>    
+</div>
+
+    <script type="text/javascript">
+        function toggle(){
+            var blur = document.getElementById('blur');
+            blur.classList.toggle('active')
+
+            var popup = document.getElementById('popup');
+            popup.classList.toggle('active')
+        }
+        function toggle2(){
+            var blur = document.getElementById('blur');
+            blur.classList.toggle('active')
+
+            var popup2 = document.getElementById('popup2');
+            popup2.classList.toggle('active')
+        }
+        
+        document.getElementById('myForm').addEventListener('input', function () {
+            const form = this;
+            const submitButton = document.getElementById('submitButton');
+            if (form.checkValidity()) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        });
+
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (this.checkValidity()) {
+                toggle2();
+                updateStatus('Rejected');
+                window.location.href = 'screen7.html';
+            }
+        });
+
+
+
+        function updateStatus(status) {
+            const requestId = getQueryParameter('Request_ID');
+            fetch(`http://localhost:3000/data/${requestId}/status`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ status: status }),
+            })
+            .then(response => response.json())
+            .then(updatedItem => {
+                // Assuming displayTable is a function to refresh the table
+                // displayTable(updatedItem);
+                window.location.href = 'screen5.html';
+            })
+            .catch(error => console.error('Error updating status:', error));
+        }
+
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function displayRequestDetails(data, requestId) {
+            const container = document.getElementById('request-info');
+            const item = data.find(d => d.Request_ID === requestId);
+
+            if (item) {
+                const outerDiv = document.createElement('div');
+                outerDiv.className = 'outer-square';
+
+                const textSection = document.createElement('div');
+                textSection.className = 'text-section';
+
+               
+                textSection.innerHTML = `
+                    <p><strong>Customer Name:</strong> ${item.Name}</p>
+                    <p><strong>Request Date:</strong> ${item.Created_Date}  </p>
+                    <p><strong>Address:</strong>  ${item.House_No} ${item.Colony}</p>
+                    <p><strong>Type of Request:</strong> ${item.Nature_of_Request}</p>
+                `;
+
+                const status = document.createElement('p');
+                status.innerHTML = `<strong>Status:</strong> ${item.Status}`;
+                textSection.appendChild(status);
+
+                outerDiv.appendChild(textSection);
+                container.appendChild(outerDiv);
+            }
+        }
+
+        function openModal(image) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = image.src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        function fetchData() {
+            const requestId = getQueryParameter('Request_ID');
+            fetch('http://localhost:3000/data')
+                .then(response => response.json())
+                .then(data => displayRequestDetails(data, requestId))
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        window.onload = fetchData;
+    </script>
+</body>
+
+<style>
+     *{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+.outer-square {
+    background-color:#46F9280F;
+    border-radius: 20px;
+    padding: 10px;
+    
+}
+.text11{
+    background: #fff;
+    padding: 10px;
+}
+textarea{
+display: block;
+width: 88vw;
+height: 20vh;
+border-radius: 5px;
+}
+
+.inner-square{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+   
+
+}
+
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+
+}
+.b1{
+    background-color: red;
+    color: #000000;
+    border: 2px solid;
+    padding: 10px 27px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.b2{
+    background-color:greenyellow;
+    color: #000000;
+    border: 2px solid;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.b3{
+    background-color: rgb(251, 251, 251);
+    color: #000000;
+    border: 2px solid;
+    padding: 10px 29px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+.text22{
+    background: #fff;
+    padding: 10px;
+}
+
+.x{
+    position: absolute;
+            top: 10px;
+            right: 20px;
+            background-color:rgb(0, 0, 0);
+            color: #fff;
+            border-radius: 5px;
+
+        }
+.buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+}
+
+.navbar a:active {
+    background-color: rgb(150, 248, 173);/* Text color of the navbar link when active */
+}
+
+.container#blur.active{
+    filter:blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+
+#popup {
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+}
+#popup.active {
+    display: block;
+}
+#blur.active {
+    filter: blur(5px);
+}
+
+@media (max-width: 600px) {
+    .inner-square textarea {
+        width: 100%;
+    }
+}
+.popup {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header, .footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #ffffff;
+    color: #7DB945;
+}
+h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.content {
+    margin-top: 20px;
+}
+.content p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+th {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+.button-container button {
+   
+    color: #000000;
+    border: 2px solid;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    .popup {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    .content p, th, td {
+        font-size: 14px;
+    }
+    .button-container button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+/* status pending */
+.abc{
+    color: blue;
+}
+
+.abcd{
+    padding: 20px;
+}
+
+
+.t2{
+    width:400px;
+}
+
+
+#popup2 {
+   border: 2px solid red;
+    
+    border-radius: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+}
+#popup2.active {
+    display: block;
+}
+#blur.active {
+    filter: blur(5px);
+}
+
+@media (max-width: 600px) {
+    .inner-square textarea {
+        width: 100%;
+    }
+}
+.image-section img {
+            width: 100px; /* Example size */
+            height: auto;
+            cursor: pointer;
+        }
+        .image-section {
+            display: flex;
+            gap: 10px;
+        }
+
+        .image-section img {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .image-section img:hover {
+            transform: scale(1.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+</style>
+</html>
+
+ 

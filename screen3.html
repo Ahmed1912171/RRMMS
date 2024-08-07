@@ -1,0 +1,128 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Responsive DataTable Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="toggle.js" type="module"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-white border-bottom  border-1 border-secondary border-opacity-25 rounded-bottom shadow">
+        <div class="container-fluid">
+            <img src="logo.png" alt="">
+          <a class="navbar-brand text-success inter" href="dashboard.html">RRMMS</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active text-success fw-bold" aria-current="page" href="#">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  text-dark" href="screen5.html">Repair Request</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  text-dark" href="screen6.html">User Approval</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link  text-dark" href="screen7.html">MIV Request</a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link  text-dark" aria-current="page" href="Userscreen.html">User Management</a>
+            </li>
+
+            </ul>
+            <div>
+              <span id="username">Ahmed Hasan</span>
+              <a class="text-dark " href="login.html"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                </svg></a>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+  
+<div class="container">
+  <h3 class="text-center">Resident Repair Requests</h3>
+  <table id="example" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+    <thead>
+      <tr>
+        <th>Repair Request Id</th>
+        <th>Resident Name</th>
+        <th>Created Date</th>
+        <th>House Number</th>
+        <th>Colony</th>
+        <th>Nature of Request</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>101</td>
+        <td>Syed Hamza Ali</td>
+        <td>9-July-2024</td>
+        <td>A-137</td>
+        <td>MGT</td>
+        <td>Electrician</td>
+        <td class="status-pending">Pending for Approval</td>
+      </tr>
+      <tr>
+        <td>102</td>
+        <td>Jahanzeb</td>
+        <td>10-July-2024</td>
+        <td>A-140</td>
+        <td>MGT</td>
+        <td>Plumber</td>
+        <td class="status-pending">Pending for Approval</td>
+      </tr>
+      <tr>
+        <td>103</td>
+        <td>Arsalan</td>
+        <td>10-July-2024</td>
+        <td>A-141</td>
+        <td>MGT</td>
+        <td>AC Repair</td>
+        <td class="status-pending">Pending for Approval</td>
+      </tr>
+      <tr>
+        <td>104</td>
+        <td>Noman</td>
+        <td>11-July-2024</td>
+        <td>A-125</td>
+        <td>MGT</td>
+        <td>Carpenter</td>
+        <td class="status-pending">Pending for Approval</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#example').DataTable({
+      responsive: true
+    });
+  });
+</script>
+
+</body>
+</html>

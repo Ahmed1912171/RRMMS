@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to RRMMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .chart-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .chart-container canvas {
+            width: 80% ; /* Ensure canvas is 100% of the container */
+            height: 300px !important;  /* Adjust the height as needed */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color:#78f166;
+        }
+        tr:nth-child(even) {background-color: #cb9f9f;}
+        
+        .table thead tr th {
+            background-color:#78f166;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<nav class="navbar navbar-expand-lg bg-body-white border-bottom border-1 border-secondary border-opacity-25 rounded-bottom shadow">
+    <div class="container-fluid">
+        <img src="logo.png" alt="">
+        <a class="navbar-brand text-success inter" href="dashboard.html">RRMMS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+                <li class="nav-item">
+                    <a class="nav-link active text-success fw-bold" aria-current="page" href="screen2.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="screen5.html">Repair Request</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="screen6.html">User Approval</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="screen7.html">MIV Request</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" aria-current="page" href="Userscreen.html">User Management</a>
+                </li>
+            </ul>
+            <div>
+                <span id="username">Ahmed Hasan</span>
+                <a class="text-dark" href="login.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<body>
+    <div class="container">
+        <h1>Welcome to RRMMS</h1>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="status-filter">Filter by Status:</label>
+                <select id="status-filter" class="form-select">
+                    <option value="all">All</option>
+                    <option value="pending" selected>Pending</option>
+                    <option value="completed">Completed</option>
+                    <option value="rejected">Rejected</option>
+                    <option value="inprogress">In Progress</option>
+                </select>
+            </div>
+
+
+            <div class="col-md-6">
+                <label for="category-filter">Filter by Category:</label>
+                <select id="category-filter" class="form-select">
+                    <option value="all">All</option>
+                    <option value="carpentry">Carpentry</option>
+                    <option value="electric">Electric</option>
+                    <option value="masonry">Masonry</option>
+                    <option value="misc">Misc</option>
+                    <option value="aircondition">Air Condition</option>
+                    <option value="plumbing">Plumbing</option>
+                    <option value="civil">Civil</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Carpentry</th>
+                        <th>Electric</th>
+                        <th>Masonry</th>
+                        <th>Misc</th>
+                        <th>Air Conditioner/Refrigerator</th>
+                        <th>Plumbing</th>
+                        <th>Civil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pending</td>
+                        <td>10</td>
+                        <td>20</td>
+                        <td>30</td>
+                        <td>40</td>
+                        <td>50</td>
+                        <td>60</td>
+                        <td>65</td>
+                    </tr>
+                    <tr>
+                        <td>Completed</td>
+                        <td>15</td>
+                        <td>25</td>
+                        <td>35</td>
+                        <td>45</td>
+                        <td>55</td>
+                        <td>65</td>
+                        <td>70</td>
+                    </tr>
+                    <tr>
+                        <td>Rejected</td>
+                        <td>5</td>
+                        <td>15</td>
+                        <td>25</td>
+                        <td>35</td>
+                        <td>45</td>
+                        <td>55</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>In Progress</td>
+                        <td>12</td>
+                        <td>22</td>
+                        <td>32</td>
+                        <td>42</td>
+                        <td>52</td>
+                        <td>62</td>
+                        <td>65</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            pending: [10, 20, 30, 40, 50, 60, 65],
+            completed: [15, 25, 35, 45, 55, 65, 70],
+            rejected: [5, 15, 25, 35, 45, 55, 60],
+            inprogress: [12, 22, 32, 42, 52, 62, 65]
+        };
+
+        const categories = ["Carpentry", "Electric", "Masonry", "Misc", "Aircondition", "Plumbing", "Civil"];
+
+        const barCtx = document.getElementById('barChart').getContext('2d');
+
+        let barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: categories,
+                datasets: []
+            }
+        });
+
+        const updateCharts = () => {
+            const statusFilter = document.getElementById('status-filter').value;
+            const categoryFilter = document.getElementById('category-filter').value;
+
+            let barData = [];
+
+            for (const status in data) {
+                if (statusFilter === 'all' || statusFilter === status) {
+                    data[status].forEach((value, index) => {
+                        if (categoryFilter === 'all' || categories[index].toLowerCase() === categoryFilter) {
+                            barData[index] = (barData[index] || 0) + value;
+                        }
+                    });
+                }
+            }
+
+            barChart.data.datasets = [{
+                label: 'Tasks',
+                data: barData,
+                backgroundColor: ['rgba(0, 0, 255, 0.55)', 'rgba(0, 255, 255, 1)'],
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }];
+
+            barChart.update();
+        };
+
+        document.getElementById('status-filter').addEventListener('change', updateCharts);
+        document.getElementById('category-filter').addEventListener('change', updateCharts);
+
+        // Initial chart update with the "Pending" status filter
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('status-filter').value = 'pending';
+            updateCharts();
+        });
+    </script>
+</body>
+</html>
